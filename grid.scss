@@ -1,0 +1,316 @@
+
+/*! 
+ * GENUINE GRID 
+ * A lightweight, responsive grid system for projects of all size
+ *
+ * Created by: Matt Litzinger
+ * Last updated: May 2015
+ *
+ */
+
+// GRID OPTIONS
+// $grid_gutter sets the horizontal space between grid items
+// $breakpoints defines each breakpoint name and value
+
+$grid_gutter: 1.5rem;
+
+$breakpoints: (
+    'sm' '(max-width: 720px)',
+    'md' '(min-width: 721px) and (max-width: 960px)',
+    'lg' '(min-width: 961px) and (max-width: 1200px)',
+    'xl' '(min-width: 1201px)'
+)!default;
+
+
+.grid {
+    margin-left: -$grid_gutter;
+    font-size: 0; // Fixes inline block whitespace. A root font-size must be set for the html element.
+}
+
+.grid [class^="grid-item"] {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    margin-bottom: $grid_gutter; // Remove for production
+    padding-left: $grid_gutter;
+    box-sizing: border-box;
+    font-size: 1rem; // Retrieves the document font-size
+}
+
+@mixin grid-sizes($breakpoint_name) {
+    @if $breakpoint_name != '' {
+        $breakpoint_name: $breakpoint_name + '-';
+    }
+
+    // One Whole
+    .grid-item-#{$breakpoint_name}1-1,
+    .grid-item-#{$breakpoint_name}2-2,
+    .grid-item-#{$breakpoint_name}3-3, 
+    .grid-item-#{$breakpoint_name}4-4,
+    .grid-item-#{$breakpoint_name}5-5,
+    .grid-item-#{$breakpoint_name}6-6,
+    .grid-item-#{$breakpoint_name}7-7,
+    .grid-item-#{$breakpoint_name}8-8,
+    .grid-item-#{$breakpoint_name}9-9,
+    .grid-item-#{$breakpoint_name}10-10,
+    .grid-item-#{$breakpoint_name}11-11, 
+    .grid-item-#{$breakpoint_name}12-12 {
+        width: 100% !important;
+    }
+
+    // One Half
+    .grid-item-#{$breakpoint_name}1-2,
+    .grid-item-#{$breakpoint_name}2-4,
+    .grid-item-#{$breakpoint_name}3-6,
+    .grid-item-#{$breakpoint_name}4-8,
+    .grid-item-#{$breakpoint_name}5-10,
+    .grid-item-#{$breakpoint_name}6-12 {
+        width: (100% / 2) !important;
+    }
+
+    // One Third
+    .grid-item-#{$breakpoint_name}1-3,
+    .grid-item-#{$breakpoint_name}2-6,
+    .grid-item-#{$breakpoint_name}3-9,
+    .grid-item-#{$breakpoint_name}4-12 {
+        width: (100% / 3) !important;
+    }
+
+    // One Fourth
+    .grid-item-#{$breakpoint_name}1-4,
+    .grid-item-#{$breakpoint_name}2-8,
+    .grid-item-#{$breakpoint_name}3-12 {
+        width: (100% / 4) !important;
+    }
+
+    // One Fifth
+    .grid-item-#{$breakpoint_name}1-5,
+    .grid-item-#{$breakpoint_name}2-10 {
+        width: (100% / 5) !important;
+    }
+
+    // One Sixth
+    .grid-item-#{$breakpoint_name}1-6, 
+    .grid-item-#{$breakpoint_name}2-12 {
+        width: (100% / 6) !important;
+    }
+
+
+    // Thirds
+    .grid-item-#{$breakpoint_name}2-3,
+    .grid-item-#{$breakpoint_name}4-6 {
+        width: (100% / 3) * 2 !important;
+    }
+
+
+    // Fourths
+    .grid-item-#{$breakpoint_name}3-4,
+    .grid-item-#{$breakpoint_name}6-8 {
+        width: (100% / 4) * 3 !important;
+    }
+
+
+    // Fifths
+    .grid-item-#{$breakpoint_name}2-5 {
+        width: (100% / 5) * 2 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}3-5 {
+        width: (100% / 5) * 3 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}4-5 {
+        width: (100% / 5) * 4 !important;
+    }
+
+
+    // Sixths
+    .grid-item-#{$breakpoint_name}5-6 {
+        width: (100% / 6) * 5 !important;
+    }
+
+
+    // Sevenths
+    .grid-item-#{$breakpoint_name}1-7 {
+        width: (100% / 7) !important;
+    }
+
+    .grid-item-#{$breakpoint_name}2-7 {
+        width: (100% / 7) * 2 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}3-7 {
+        width: (100% / 7) * 3 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}4-7 {
+        width: (100% / 7) * 4 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}5-7 {
+        width: (100% / 7) * 5 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}6-7 {
+        width: (100% / 7) * 6 !important;
+    }
+
+
+    // Eighths
+    .grid-item-#{$breakpoint_name}1-8 {
+        width: (100% / 8) !important;
+    }
+
+    .grid-item-#{$breakpoint_name}3-8 {
+        width: (100% / 8) * 3 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}5-8 {
+        width: (100% / 8) * 5 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}7-8 {
+        width: (100% / 8) * 7 !important;
+    }
+
+    // Ninths
+    .grid-item-#{$breakpoint_name}1-9 {
+        width: (100% / 9) !important;
+    }
+
+    .grid-item-#{$breakpoint_name}2-9 {
+        width: (100% / 9) * 2 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}4-9 {
+        width: (100% / 9) * 4 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}5-9 {
+        width: (100% / 9) * 5 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}6-9 {
+        width: (100% / 9) * 6 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}7-9 {
+        width: (100% / 9) * 7 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}8-9 {
+        width: (100% / 9) * 8 !important;
+    }
+
+    // Tenths
+    .grid-item-#{$breakpoint_name}1-10 {
+        width: (100% / 10) !important;
+    }
+
+    .grid-item-#{$breakpoint_name}3-10 {
+        width: (100% / 10) * 3 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}4-10 {
+        width: (100% / 10) * 4 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}6-10 {
+        width: (100% / 10) * 6 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}7-10 {
+        width: (100% / 10) * 7 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}8-10 {
+        width: (100% / 10) * 8 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}9-10 {
+        width: (100% / 10) * 9 !important;
+    }
+
+
+    // Elevenths
+    .grid-item-#{$breakpoint_name}1-11 {
+        width: (100% / 11) !important;
+    }
+
+    .grid-item-#{$breakpoint_name}2-11 {
+        width: (100% / 11) * 2 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}3-11 {
+        width: (100% / 11) * 3 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}4-11 {
+        width: (100% / 11) * 4 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}5-11 {
+        width: (100% / 11) * 5 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}6-11 {
+        width: (100% / 11) * 6 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}7-11 {
+        width: (100% / 11) * 7 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}8-11 {
+        width: (100% / 11) * 8 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}9-11 {
+        width: (100% / 11) * 9 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}10-11 {
+        width: (100% / 11) * 10 !important;
+    }
+
+    // Twelfths
+    .grid-item-#{$breakpoint_name}1-12 {
+        width: (100% / 12) !important;
+    }
+
+    .grid-item-#{$breakpoint_name}5-12 {
+        width: (100% / 12) * 5 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}7-12 {
+        width: (100% / 12) * 7 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}8-12 {
+        width: (100% / 12) * 8 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}9-12 {
+        width: (100% / 12) * 9 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}10-12 {
+        width: (100% / 12) * 10 !important;
+    }
+
+    .grid-item-#{$breakpoint_name}11-12 {
+        width: (100% / 12) * 11 !important;
+    }
+}
+
+@include grid-sizes(''); 
+
+@each $breakpoint in $breakpoints{
+    $breakpoint_name: nth($breakpoint, 1);
+    $breakpoint_width: nth($breakpoint, 2);
+
+    @media screen and #{$breakpoint_width}{
+        @include grid-sizes($breakpoint_name); 
+    }
+}
+
