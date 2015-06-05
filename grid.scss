@@ -3,8 +3,8 @@
  * GENUINE GRID 
  * A lightweight, responsive grid system for projects of all size
  *
- * Created by: Matt Litzinger
- * Last updated: May 2015
+ * Author: Matt Litzinger
+ * Project URL: https://github.com/ltzngr/genuine_grid
  *
  */
 
@@ -31,7 +31,6 @@ $breakpoints: (
     display: inline-block;
     vertical-align: top;
     width: 100%;
-    margin-bottom: $grid_gutter; // Remove for production
     padding-left: $grid_gutter;
     box-sizing: border-box;
     font-size: 1rem; // Retrieves the document font-size
@@ -40,6 +39,11 @@ $breakpoints: (
 @mixin grid-sizes($breakpoint_name) {
     @if $breakpoint_name != '' {
         $breakpoint_name: $breakpoint_name + '-';
+    }
+
+    // Hidden
+    .grid-item-#{$breakpoint_name}hidden {
+        display: none !important;
     }
 
     // One Whole
